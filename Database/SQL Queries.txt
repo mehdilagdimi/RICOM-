@@ -1,0 +1,111 @@
+CREATE DATABASE ricom;
+SET SQL_MODE='ALLOW_INVALID_DATES';
+USE ricom;
+
+CREATE TABLE it_admin (
+    adminID INT NOT NULL AUTO_INCREMENT,
+    fName VARCHAR(30) NOT NULL,
+    lName VARCHAR(30) NOT NULL,
+    email VARCHAR(60) NOT NULL,
+    phone VARCHAR(30) NOT NULL,
+    passw VARCHAR(255) NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (adminID)
+);
+
+CREATE TABLE physician (
+	physicianID INT NOT NULL AUTO_INCREMENT,
+    fName VARCHAR(30) NOT NULL,
+    lName VARCHAR(30) NOT NULL,
+    email VARCHAR(60) NOT NULL,
+    phone VARCHAR(30) NOT NULL,
+    passw VARCHAR(255) NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (physicianID)
+);
+
+CREATE TABLE radiologist (
+	radiologistID INT NOT NULL AUTO_INCREMENT,
+    fName VARCHAR(30) NOT NULL,
+    lName VARCHAR(30) NOT NULL,
+    email VARCHAR(60) NOT NULL,
+    phone VARCHAR(30) NOT NULL,
+    passw VARCHAR(255) NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (radiologistID)
+);
+
+CREATE TABLE headofDepart (
+	headID INT NOT NULL AUTO_INCREMENT,
+    fName VARCHAR(30) NOT NULL,
+    lName VARCHAR(30) NOT NULL,
+    email VARCHAR(60) NOT NULL,
+    phone VARCHAR(30) NOT NULL,
+    passw VARCHAR(255) NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (headID)
+);
+
+CREATE TABLE patient (
+	patientID INT NOT NULL AUTO_INCREMENT,
+    fName VARCHAR(30) NOT NULL,
+    lName VARCHAR(30) NOT NULL,
+    phone VARCHAR(30) NOT NULL,
+    birthDate DATE,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (patientID)
+);
+
+CREATE TABLE serie(
+	serieID INT NOT NULL AUTO_INCREMENT,
+    patientID INT,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (serieID),
+    FOREIGN KEY (patientID) REFERENCES patient(patientID) ON DELETE CASCADE 
+);
+
+CREATE TABLE modality(
+	modalityID INT NOT NULL AUTO_INCREMENT,
+    modality VARCHAR(30),
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (modalityID)
+);
+
+CREATE TABLE dicomSlice(
+	sliceID INT NOT NULL AUTO_INCREMENT,
+    modalityID INT,
+    serieID INT,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (sliceID),
+    FOREIGN KEY (modalityID) REFERENCES modality(modalityID) ON UPDATE CASCADE,
+    FOREIGN KEY (serieID) REFERENCES serie(serieID) ON DELETE CASCADE
+);
+
+CREATE TABLE examinationOrder (
+	orderID INT NOT NULL AUTO_INCREMENT,
+    physicianID INT,
+    radiologistID INT,
+    orderTest VARCHAR(500),
+    orderState VARCHAR(30),
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (orderID),
+    FOREIGN KEY (physicianID) REFERENCES physician(physicianID) ON DELETE CASCADE,
+    FOREIGN KEY (radiologistID) REFERENCES radiologist(radiologistID) ON UPDATE CASCADE
+);
+
+CREATE TABLE report (
+	reportID INT NOT NULL AUTO_INCREMENT,
+    serieID INT,
+    orderID INT,
+    physicianID INT,
+    radiologistID INT,
+    reportRadiologist VARCHAR(1000),
+    reportPhysician VARCHAR(1000),
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (reportID),
+    FOREIGN KEY (orderID) REFERENCES examinationOrder(orderID) ON UPDATE CASCADE,
+    FOREIGN KEY (serieID) REFERENCES serie(serieID) ON DELETE CASCADE, 
+    FOREIGN KEY (physicianID) REFERENCES physician(physicianID) ON UPDATE CASCADE,
+    FOREIGN KEY (radiologistID) REFERENCES radiologist(radiologistID) ON UPDATE CASCADE
+);
+
