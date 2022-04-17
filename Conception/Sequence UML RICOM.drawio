@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="kgpKYQtTHZ0yAKxKKP6v" name="Page-1">
-        <mxGraphModel dx="2254" dy="590" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1920" math="0" shadow="0">
+        <mxGraphModel dx="2957" dy="983" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1920" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -123,7 +123,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="87" value="Redirect to specified exam order page" style="verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;shadow=0;strokeWidth=1;exitX=0.417;exitY=0.887;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="77" target="63" edge="1">
-                    <mxGeometry x="0.0057" y="-3" relative="1" as="geometry">
+                    <mxGeometry x="0.0039" y="-3" relative="1" as="geometry">
                         <mxPoint x="-984.9499999999998" y="771" as="targetPoint"/>
                         <mxPoint x="-609.0500000000002" y="771" as="sourcePoint"/>
                         <mxPoint as="offset"/>
@@ -853,13 +853,13 @@
                 <mxCell id="333" value="" style="shape=umlDestroy;" parent="331" vertex="1">
                     <mxGeometry x="35" y="170" width="30" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="334" value="Annotate images" style="verticalAlign=bottom;endArrow=open;shadow=0;strokeWidth=1;exitX=0.567;exitY=0.358;exitDx=0;exitDy=0;exitPerimeter=0;endFill=0;entryX=0.543;entryY=0.314;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+                <mxCell id="334" value="Annotate images" style="verticalAlign=bottom;endArrow=open;shadow=0;strokeWidth=1;exitX=0.567;exitY=0.358;exitDx=0;exitDy=0;exitPerimeter=0;endFill=0;entryX=0.543;entryY=0.314;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="75.67000000000007" y="710.5439999999999" as="sourcePoint"/>
                         <mxPoint x="697.3000000000002" y="711.6099999999999" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="335" value="Update study images" style="verticalAlign=bottom;endArrow=open;shadow=0;strokeWidth=1;startArrow=none;endFill=0;" edge="1" parent="1">
+                <mxCell id="335" value="Update study images" style="verticalAlign=bottom;endArrow=open;shadow=0;strokeWidth=1;startArrow=none;endFill=0;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="694.25" y="720" as="sourcePoint"/>
                         <mxPoint x="1105.75" y="720" as="targetPoint"/>
