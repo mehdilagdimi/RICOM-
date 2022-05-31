@@ -1,1 +1,2 @@
-https://github.com/mehdilagdimi/RICOM-
+Repo API : https://github.com/mehdilagdimi/ricom-api
+Repo frontend App : https://github.com/mehdilagdimi/ricom-app 
